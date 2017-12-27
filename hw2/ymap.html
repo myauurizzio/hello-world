@@ -9,17 +9,25 @@
 <script type="text/javascript">
   ymaps.ready(init);
     var myMap,
-        myPlacemark;
+        myPlacemark,
+	pmLat, 
+	pmLon,
+	pmHint,
+	pmballoonContent;
 
     function init(){     
+	pmLat = 43.42055556;
+	pmLon = 39.92474722;
+	pmHint = 'Адлер';
+	pmballoonContent = 'БМП-1';
         myMap = new ymaps.Map("map", {
-            center: [55.76, 37.64],
-            zoom: 7
+            center: [pmLat, pmLon],
+            zoom: 14
         });
 
-        myPlacemark = new ymaps.Placemark([55.76, 37.64], { 
-            hintContent: 'Москва!', 
-            balloonContent: 'Столица России' 
+        myPlacemark = new ymaps.Placemark([pmLat, pmLon], { 
+            hintContent: pmHint,
+            balloonContent: pmballoonContent
         });
 
         myMap.geoObjects.add(myPlacemark);
@@ -28,6 +36,10 @@
 
  </head>
  <body>
-    <div id="map" style="width: 600px; height: 400px"></div>
+    <div id="map" style="width: 800px; height: 600px"></div>
 </body>
 </html>
+
+
+
+
